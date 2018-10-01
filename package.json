@@ -1,6 +1,6 @@
 {
   "name": "@nsilly/auth",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "JSON Web Token Authentication for nSilly framework",
   "scripts": {
     "test": "jest --forceExit",

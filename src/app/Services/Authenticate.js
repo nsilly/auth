@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import models from '../../../../../../../../models';
+import models from '../../../../../../../models';
 import { UnauthorizedHttpException, Exception } from '@nsilly/exceptions';
 
 export class Authenticate {
