@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import models from '../../../../../../../dist/models';
 import { UnauthorizedHttpException, Exception } from '@nsilly/exceptions';
 
 export class Authenticate {
@@ -8,13 +7,17 @@ export class Authenticate {
     this.isAuthenticated = true;
   }
 
+  setModel(model) {
+    this.model = model;
+  }
+
   /**
    * Get current logged in user
    *
    * @return object
    */
   async getUser() {
-    if (_.isUndefined(models)) {
+    if (_.isUndefined(this.model)) {
       throw new Exception('Method is not implemented');
     }
     if (!this.isAuthenticated) {
@@ -25,7 +28,7 @@ export class Authenticate {
     }
 
     if (_.isUndefined(process.domain._req.locals.user)) {
-      const user = await models.user.findOne({ where: { email: this.decoded.email }, include: [{ model: models.role }] });
+      const user = await this.model.user.findOne({ where: { email: this.decoded.email }, include: [{ model: this.model.role }] });
       process.domain._req.locals.user = user;
     }
 
