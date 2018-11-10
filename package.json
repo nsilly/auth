@@ -1,6 +1,6 @@
 {
   "name": "@nsilly/auth",
-  "version": "2.1.4",
+  "version": "2.1.6",
   "description": "JSON Web Token Authentication for nSilly framework",
   "scripts": {
     "test": "jest --forceExit",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/nsilly/auth#readme",
   "dependencies": {
+    "@nsilly/container": "*",
     "@nsilly/exceptions": "*",
     "@nsilly/support": "*",
     "jsonwebtoken": "^8.3.0",

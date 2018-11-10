@@ -16,6 +16,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@nsilly/container@*":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@nsilly/container/-/container-2.1.1.tgz#4b4c88281530cf4f6e4a1dbd4ff1bbf4316099e1"
+
 "@nsilly/container@^2.1":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@nsilly/container/-/container-2.1.0.tgz#8ddc0d14a811f38751c1beb42cf04aea71c9590b"

@@ -28,7 +28,7 @@ export class Authenticate {
     }
 
     if (_.isUndefined(process.domain._req.locals.user)) {
-      const user = await this.model.user.findOne({ where: { email: this.decoded.email }, include: [{ model: this.model.role }] });
+      const user = await this.model.user.findOne({ where: { id: this.decoded.id }, include: [{ model: this.model.role }] });
       process.domain._req.locals.user = user;
     }
 
