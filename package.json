@@ -8,9 +8,6 @@
     "publish_module": "npm run build && npx @codersvn/npm-auto-version && npm publish --access public && rm -rf dist",
     "publish_module_only": "npm run build && npm publish --access public && rm -rf dist"
   },
-  "publishConfig": {
-    "registry": "http://registry.vicoders.com"
-  },
   "main": "dist/index.js",
   "repository": {
     "type": "git",
