@@ -1,10 +1,10 @@
-import { UnauthorizedHttpException } from '@nsilly/exceptions';
+import _ from 'lodash';
+import { UnauthorizedHttpException, Exception } from '@nsilly/exceptions';
 import httpContext from 'express-http-context';
 
 export class Authenticate {
-  login(user) {
-    this.user = user;
-    httpContext.set('user', user);
+  async login(data) {
+    this.decoded = data;
     this.isAuthenticated = true;
   }
 
@@ -17,9 +17,17 @@ export class Authenticate {
    *
    * @return object
    */
-  getUser() {
+  async getUser() {
+    if (_.isUndefined(this.model)) {
+      throw new Exception('Method is not implemented');
+    }
     if (!this.isAuthenticated) {
       throw new UnauthorizedHttpException('Unauthorized');
+    }
+
+    if (_.isNil(httpContext.get('user'))) {
+      const user = await this.model.user.findOne({ where: { id: this.decoded.id }, include: [{ model: this.model.role }] });
+      httpContext.set('user', user);
     }
 
     return httpContext.get('user');
