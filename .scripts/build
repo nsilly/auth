@@ -1,0 +1,8 @@
+#!/bin/bash
+
+yarn build
+
+rm -rf ../nsilly/node_modules/@nsilly/auth/dist/*
+cp -R ./dist/* ../nsilly/node_modules/@nsilly/auth/dist/
+cp -R ./package.json ../nsilly/node_modules/@nsilly/auth/
+cp -R ./yarn.lock ../nsilly/node_modules/@nsilly/auth/
