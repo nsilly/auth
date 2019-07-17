@@ -1,6 +1,6 @@
 {
   "name": "@nsilly/auth",
-  "version": "2.2.0",
+  "version": "4.1.0",
   "description": "JSON Web Token Authentication for nSilly framework",
   "scripts": {
     "test": "./node_modules/.bin/jest --forceExit",
