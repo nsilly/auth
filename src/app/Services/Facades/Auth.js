@@ -1,4 +1,5 @@
 import { App } from '@nsilly/container';
+import httpContext from 'express-http-context';
 
 export class Auth {
   /**
@@ -17,7 +18,7 @@ export class Auth {
    * @return bool
    */
   static check() {
-    return App.make('Auth').isAuthenticated;
+    return httpContext.get('isAuthenticated');
   }
 
   /**

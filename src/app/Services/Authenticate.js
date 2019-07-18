@@ -3,9 +3,14 @@ import { UnauthorizedHttpException, Exception } from '@nsilly/exceptions';
 import httpContext from 'express-http-context';
 
 export class Authenticate {
+  constructor() {
+    this.isAuthenticated = false;
+  }
+
   async login(data) {
     this.decoded = data;
     this.isAuthenticated = true;
+    httpContext.set('isAuthenticated', true);
   }
 
   setModel(model) {

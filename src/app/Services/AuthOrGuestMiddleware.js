@@ -12,7 +12,7 @@ export const AuthOrGuestMiddleware = AsyncMiddleware(async (req, res, next) => {
     }
     const access_token = authorization.split(' ')[1];
 
-    if (_.isNil(access_token)) {
+    if (_.isNil(access_token) || access_token === 'null' || access_token === 'undefined') {
       throw new Exception('Token not found', 1000);
     }
 
